@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Archivos fuente de diseño (originales, no usados por el sitio)
+images/
+
+# Editores
+.vscode/
+.idea/
+
+# Logs / temporales
+*.log
+node_modules/

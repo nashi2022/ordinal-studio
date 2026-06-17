@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ordinal — la colección</title>
+  <meta name="description" content="La colección de Ordinal: un catálogo de museo. Data storytelling y data art. Cada obra tiene su lugar —esté terminada o todavía en viaje.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+</head>
+<body data-page="collection">
+
+  <div class="noise" aria-hidden="true"></div>
+  <canvas id="leavesCanvas" aria-hidden="true"></canvas>
+  <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+  <div class="cursor" aria-hidden="true"><div class="cursor__dot"></div><div class="cursor__ring"></div></div>
+
+  <header class="nav" id="nav">
+    <a class="nav__logo" href="index.html" aria-label="ordinal — inicio">
+      <img class="nav__leaf" src="assets/img/logomark.png" alt="" aria-hidden="true">
+      <span>ordinal<i>.</i></span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="coleccion.html" data-i18n="nav.collection">La colección</a>
+      <a href="proponer.html" data-i18n="nav.propose">Proponer un proyecto</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="Cambiar idioma / Switch language">
+        <span data-lang-opt="es">ES</span><i>/</i><span data-lang-opt="en">EN</span>
+      </button>
+      <button class="burger" id="burger" aria-label="Menú"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ═══════════ ENTRADA AL CATÁLOGO ═══════════ -->
+    <section class="cat-entry">
+      <div class="cat-entry__canvas" aria-hidden="true"><canvas id="particleLeaf"></canvas></div>
+      <p class="cat-entry__eyebrow mono reveal" data-i18n="cat.eyebrow">la colección · catálogo</p>
+      <h1 class="cat-entry__title reveal" data-i18n="cat.title">Las hojas.</h1>
+      <p class="cat-entry__sub reveal" data-i18n="cat.subtitle">Historias que dejaron de ser solo archivos.</p>
+      <div class="cat-entry__intro">
+        <p class="reveal" data-i18n="cat.intro1">Todo árbol tiene su forma de guardar el año. El ginkgo lo hace en sus hojas: cada una es el registro de una estación, de un otoño que pasó. Este catálogo funciona igual.</p>
+        <p class="reveal" data-i18n="cat.intro2">Acá vive la obra. Lo que ya se puede ver y lo que todavía viaja. Lo que nace de un encargo y lo que nace de adentro. Lo que se lee en una pantalla y lo que se toca con la mano.</p>
+        <p class="cat-entry__q reveal" data-i18n-html="cat.intro3">Tres salas. Una sola pregunta detrás de cada pieza: <span class="highlight">¿qué estaban tratando de decir estos números?</span></p>
+      </div>
+    </section>
+
+    <!-- ═══════════ LAS TRES PUERTAS ═══════════ -->
+    <section class="doors">
+      <a class="door reveal" href="#permanente">
+        <span class="door__kicker mono" data-i18n="cat.r1.kicker">sala i</span>
+        <span class="door__name" data-i18n="cat.r1.name">Colección permanente</span>
+        <span class="door__sub" data-i18n="cat.r1.sub">Las piezas que nadie encargó</span>
+        <span class="door__count mono" data-i18n="cat.r1.count">2 obras</span>
+        <span class="door__arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="door reveal" href="#historias">
+        <span class="door__kicker mono" data-i18n="cat.r2.kicker">sala ii</span>
+        <span class="door__name" data-i18n="cat.r2.name">Ala de Historias</span>
+        <span class="door__sub" data-i18n="cat.r2.sub">Los datos que alguien tenía que contar</span>
+        <span class="door__count mono" data-i18n="cat.r2.count">2 obras</span>
+        <span class="door__arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="door reveal" href="#arte">
+        <span class="door__kicker mono" data-i18n="cat.r3.kicker">sala iii</span>
+        <span class="door__name" data-i18n="cat.r3.name">Ala de Arte</span>
+        <span class="door__sub" data-i18n="cat.r3.sub">Cuando un dato se vuelve materia</span>
+        <span class="door__count mono" data-i18n="cat.r3.count">1 obra</span>
+        <span class="door__arrow" aria-hidden="true">→</span>
+      </a>
+    </section>
+
+    <!-- ═══════════ SALA I · COLECCIÓN PERMANENTE ═══════════ -->
+    <section class="room room--opera" id="permanente">
+      <div class="fleaf fleaf--lg" data-drift="-0.07" data-rot="-0.5" style="left: 3vw; top: 8%; width: clamp(110px, 12vw, 190px); --r0: -16deg; --r1: -4deg; --sway: 13s" aria-hidden="true">
+        <img src="assets/img/leaf-green.png" alt="">
+      </div>
+      <div class="room__head">
+        <span class="room__label mono reveal" data-i18n="cat.r1.label">Sala i · Colección permanente</span>
+        <h2 class="room__title reveal" data-i18n-html="cat.r1.title">Las piezas que nadie <em>encargó.</em></h2>
+        <p class="room__desc reveal" data-i18n="cat.r1.desc">La Colección Permanente es la obra más propia de Ordinal. Piezas que no nacen de un encargo externo sino de una pregunta que el estudio no podía dejar sin responder. Nadie las pidió. Aparecieron porque había algo que valía la pena leer y nadie lo estaba leyendo. Son la razón por la que existe el estudio — no al revés.</p>
+      </div>
+
+      <div class="opera">
+        <article class="opus reveal">
+          <span class="opus__ghost mono" data-drift="0.05" aria-hidden="true">001</span>
+          <div class="opus__aside">
+            <span class="opus__num mono">001</span>
+            <span class="cartela__state cartela__state--process mono" data-i18n="cat.st.process">En proceso</span>
+          </div>
+          <div class="opus__main">
+            <button class="opus__head" type="button" aria-expanded="false">
+              <h3 class="opus__title" data-i18n-html="cat.o1.t">El Estudio<br>del Propósito.</h3>
+              <span class="opus__toggle" aria-hidden="true"></span>
+            </button>
+            <div class="opus__detail">
+              <div class="opus__detail-in">
+            <p class="opus__tech mono" data-i18n="cat.o1.tech">Investigación cualitativa · Data storytelling · Podcast · Ordinal Studio · 2025</p>
+            <div class="opus__prose">
+              <p class="reveal" data-i18n="cat.o1.p1">El podcast With Purpose no era un show de entrevistas. Era un método de campo: escuchar, que es la forma más subestimada de leer. En cada conversación aparecía la misma pregunta debajo de todas las otras — qué significa trabajar en algo que importa, y cómo se mide eso cuando no hay un número que lo capture del todo.</p>
+              <p class="reveal" data-i18n="cat.o1.p2">El Estudio del Propósito toma esa información cualitativa —fragmentos, silencios, frases que se repiten de boca en boca— y la cruza con research cuantitativo complementario para leer un patrón que estaba ahí, distribuido en decenas de horas de escucha, esperando que alguien lo ordenara.</p>
+            </div>
+            <figure class="opus__note reveal">
+              <figcaption class="opus__note-label mono" data-i18n="cat.o1.noteLabel">Nota de la lectora</figcaption>
+              <blockquote class="opus__quote" data-i18n="cat.o1.quote">Empecé a notar que todos describían lo mismo con palabras distintas. Eso, en investigación, es la señal más importante: cuando el lenguaje varía pero la estructura se repite, hay algo real adentro.</blockquote>
+            </figure>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="opus reveal">
+          <span class="opus__ghost mono" data-drift="0.05" aria-hidden="true">002</span>
+          <div class="opus__aside">
+            <span class="opus__num mono">002</span>
+            <span class="cartela__state cartela__state--process mono" data-i18n="cat.st.process">En proceso</span>
+          </div>
+          <div class="opus__main">
+            <button class="opus__head" type="button" aria-expanded="false">
+              <h3 class="opus__title" data-i18n-html="cat.o2.t">Las que<br>se van.</h3>
+              <span class="opus__toggle" aria-hidden="true"></span>
+            </button>
+            <div class="opus__detail">
+              <div class="opus__detail-in">
+            <p class="opus__tech mono" data-i18n="cat.o2.tech">Scrollytelling · Data storytelling · Estadística · Historias · Ordinal Studio · 2025</p>
+            <div class="opus__prose">
+              <p class="reveal" data-i18n="cat.o2.p1">En los últimos dos años, miles de mujeres dejaron de hacer lo que hacían. Algunas lo llamaron renuncia. Otras, reinvención. Muchas no lo llamaron de ninguna manera — simplemente se fueron, sin comunicado, sin anuncio, sin que nadie registrara bien el movimiento.</p>
+              <p class="reveal" data-i18n="cat.o2.p2">Esta pieza lee ese movimiento. Cruza los datos estadísticos de la salida —tasas, sectores, edades, geografías— con las historias de las que se fueron: qué vieron venir, qué no pudieron ignorar, qué tiene que ver la IA con todo esto. Los números dicen cuántas. Las historias dicen por qué.</p>
+            </div>
+            <figure class="opus__note reveal">
+              <figcaption class="opus__note-label mono" data-i18n="cat.o2.noteLabel">Nota de la lectora</figcaption>
+              <blockquote class="opus__quote" data-i18n="cat.o2.quote">Había algo que los datos no alcanzaban a decir. Y había algo que las historias solas no podían probar. Esta pieza existe para leer las dos cosas a la vez.</blockquote>
+            </figure>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══════════ SALA II · ALA DE HISTORIAS ═══════════ -->
+    <section class="room room--opera room--earth" id="historias">
+      <div class="fleaf fleaf--lg" data-drift="0.07" data-rot="0.5" style="right: 4vw; top: 9%; width: clamp(110px, 12vw, 190px); --r0: 12deg; --r1: 24deg; --sway: 12s" aria-hidden="true">
+        <img src="assets/img/leaf-gold.png" alt="">
+      </div>
+      <div class="room__head">
+        <span class="room__label mono reveal" data-i18n="cat.r2.label">Sala ii · Ala de Historias</span>
+        <h2 class="room__title reveal" data-i18n-html="cat.r2.title">Los datos que alguien <em>tenía que contar.</em></h2>
+        <p class="room__desc reveal" data-i18n="cat.r2.desc">Esta ala se llena cuando un organismo, una institución o un equipo de investigación llega con la misma frase: tenemos esto desde hace años. Sabemos que importa. No sabemos cómo hacer que se entienda.</p>
+        <p class="room__desc reveal" data-i18n="cat.r2.desc2">Lo que entra acá es eso: información que costó años, presupuesto y trabajo de mucha gente, y que vivía en formatos que casi nadie podía leer. No decoro datos. Los hago contar lo que vinieron a contar.</p>
+        <p class="room__desc reveal" data-i18n="cat.r2.desc3">Las piezas que vas a ver acá tienen algo en común que tardé en notar: casi todas son sobre cosas que dependen del suelo. La tierra, lo que crece de ella, lo que dejamos de comer cuando deja de crecer, lo que pasa cuando el clima cambia las reglas. Quizás no sea casualidad — son los datos que el mundo más está necesitando leer ahora mismo.</p>
+      </div>
+
+      <div class="opera">
+        <article class="opus reveal">
+          <span class="opus__ghost mono" data-drift="0.05" aria-hidden="true">003</span>
+          <div class="opus__aside">
+            <span class="opus__num mono">003</span>
+            <span class="cartela__state cartela__state--process mono" data-i18n="cat.st.process">En proceso</span>
+          </div>
+          <div class="opus__main">
+            <button class="opus__head" type="button" aria-expanded="false">
+              <h3 class="opus__title" data-i18n-html="cat.o3.t">Lo que se siembra<br>también se piensa.</h3>
+              <span class="opus__toggle" aria-hidden="true"></span>
+            </button>
+            <div class="opus__detail">
+              <div class="opus__detail-in">
+            <p class="opus__tech mono" data-i18n="cat.o3.tech">Scrollytelling · Agricultura nutricionalmente inteligente · Banco Mundial · 2025</p>
+            <div class="opus__prose">
+              <p class="reveal" data-i18n="cat.o3.p1">América Latina produce comida en cantidades históricas. Y a la vez tiene cifras de mala nutrición —obesidad, déficit de micronutrientes, hambre invisible— que crecen al mismo tiempo. No es una paradoja. Es un sistema. Lo que se siembra hoy decide qué se va a comer mañana, y nadie estaba leyendo esos dos lados del problema en el mismo idioma.</p>
+              <p class="reveal" data-i18n="cat.o3.p2">Esta pieza traduce la evidencia del Banco Mundial sobre agricultura nutricionalmente inteligente —cultivos, biodiversidad, decisiones de política, datos de consumo— en una historia que conecta el surco con el plato. Para que cualquiera —ministro, productor, periodista, alguien curioso— pueda entender por qué algunas decisiones agrícolas son, en realidad, decisiones de salud pública.</p>
+            </div>
+            <figure class="opus__note reveal">
+              <figcaption class="opus__note-label mono" data-i18n="cat.o3.noteLabel">Nota de la lectora</figcaption>
+              <blockquote class="opus__quote" data-i18n="cat.o3.quote">La pregunta no era cuánto se produce. Era qué se produce, para quién, y qué pasa adentro del cuerpo de quien después se lo come.</blockquote>
+            </figure>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="opera__interlude reveal">
+          <span class="opera__interlude-label mono" data-i18n="cat.r2.interLabel">Nota de sala</span>
+          <p data-i18n="cat.r2.inter">La obra de arriba pregunta qué decidimos sembrar. La siguiente pregunta qué pasa cuando el clima decide por nosotros.</p>
+        </aside>
+
+        <article class="opus reveal">
+          <span class="opus__ghost mono" data-drift="0.05" aria-hidden="true">004</span>
+          <div class="opus__aside">
+            <span class="opus__num mono">004</span>
+            <span class="cartela__state cartela__state--process mono" data-i18n="cat.st.process">En proceso</span>
+          </div>
+          <div class="opus__main">
+            <button class="opus__head" type="button" aria-expanded="false">
+              <h3 class="opus__title" data-i18n-html="cat.o4.t">El año en que El Niño<br>cambió la cosecha.</h3>
+              <span class="opus__toggle" aria-hidden="true"></span>
+            </button>
+            <div class="opus__detail">
+              <div class="opus__detail-in">
+            <p class="opus__tech mono" data-i18n="cat.o4.tech">Scrollytelling · Clima & agricultura · Organismo internacional · 2025</p>
+            <div class="opus__prose">
+              <p class="reveal" data-i18n="cat.o4.p1">Cada cierto número de años, una corriente del Pacífico se calienta unas pocas décimas de grado. Suena chico. No lo es. El Niño reordena todo lo que crece en el continente. Llueve donde no debería, se seca lo que tendría que estar verde, se adelantan las siembras y se atrasan las cosechas. Las decisiones del año dejan de servir.</p>
+              <p class="reveal" data-i18n="cat.o4.p2">Esta pieza lee el fenómeno desde adentro de los datos: cómo afecta la productividad por cultivo y por país, qué regiones quedan más expuestas, qué pierde el productor que no lo vio venir y qué gana el que tuvo la información a tiempo. Es la lectura que necesitan los que deciden políticas y la que merecen los que dependen de la tierra para vivir.</p>
+            </div>
+            <figure class="opus__note reveal">
+              <figcaption class="opus__note-label mono" data-i18n="cat.o4.noteLabel">Nota de la lectora</figcaption>
+              <blockquote class="opus__quote" data-i18n="cat.o4.quote">Hay datos del clima que existen desde hace décadas. El trabajo no era encontrarlos. Era contarlos de manera que un ministerio y un productor de soja pudieran usar la misma página para entender el mismo año.</blockquote>
+            </figure>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══════════ SALA III · ALA DE ARTE ═══════════ -->
+    <section class="room room--dark" id="arte">
+      <div class="fleaf fleaf--lg" data-drift="0.08" data-rot="0.5" style="right: 4vw; top: 12%; width: clamp(120px, 14vw, 210px); --r0: 10deg; --r1: 22deg; --sway: 12s" aria-hidden="true">
+        <img src="assets/img/leaf-brown.png" alt="">
+      </div>
+      <div class="room__head">
+        <span class="room__label mono reveal" data-i18n="cat.r3.label">Sala iii · Ala de Arte</span>
+        <h2 class="room__title reveal" data-i18n-html="cat.r3.title">Cuando un dato <em>se vuelve materia.</em></h2>
+        <p class="room__desc reveal" data-i18n="cat.r3.desc">Hay datos que no quieren ser leídos. Quieren ser tocados, mirados de cerca, rodeados a pie. Información que pide salir de la pantalla y volverse arcilla, papel, hilo, pared — algo frente a lo que uno se queda quieto un rato.</p>
+        <p class="room__desc reveal" data-i18n="cat.r3.desc2">Esta ala es para eso. Aquí los números no se grafican: se encarnan. Una hoja de cerámica puede ser un dato. Una serie de manchas, una corriente. El mismo rigor de siempre, en otro estado de la materia.</p>
+      </div>
+
+      <div class="opera">
+        <article class="opus reveal">
+          <span class="opus__ghost mono" data-drift="0.05" aria-hidden="true">005</span>
+          <div class="opus__aside">
+            <span class="opus__num mono">005</span>
+            <span class="cartela__state cartela__state--process mono" data-i18n="cat.st.process">En proceso</span>
+          </div>
+          <div class="opus__main">
+            <button class="opus__head" type="button" aria-expanded="false">
+              <h3 class="opus__title" data-i18n-html="cat.o5.t">Fenología<br>del sur.</h3>
+              <span class="opus__toggle" aria-hidden="true"></span>
+            </button>
+            <div class="opus__detail">
+              <div class="opus__detail-in">
+            <p class="opus__tech mono" data-i18n="cat.o5.tech">Mural · Cerámica · 168 hojas · Buenos Aires · Otoño 2027</p>
+            <div class="opus__prose">
+              <p class="reveal" data-i18n="cat.o5.p1">Esta obra empezó como una pregunta de chica. Cada otoño en Buenos Aires hay un día en que el jacarandá se queda quieto, el plátano se enciende, el ginkgo se vuelve oro, el liquidámbar se va al rojo. Nunca el mismo día. Nunca en el mismo orden. Y sin embargo, año tras año, el barrio entero cambia de color.</p>
+              <p class="reveal" data-i18n="cat.o5.p2">Quise saber qué había detrás de eso. Qué decide que una hoja deje de ser verde. Resulta que abajo de cada color hay una decisión química — la clorofila se retira y deja ver los pigmentos que estuvieron escondidos todo el año. El otoño no agrega color. Lo revela.</p>
+            </div>
+            <p class="opus__break reveal" data-i18n="cat.o5.q1">¿Y si la información que hay detrás de un otoño fuera, también, una obra de arte?</p>
+            <div class="opus__prose">
+              <p class="reveal" data-i18n="cat.o5.p3">Fenología del sur es esa pregunta hecha cerámica. Cuatro especies, doce semanas, una hoja modelada a mano por cada lectura: el porcentaje de verde que cedió, el pigmento que salió a la luz, la temperatura mínima del día, el agua que cayó esa noche. Cada hoja es un dato. La fila de hojas es la semana. El mural entero es el año.</p>
+              <p class="reveal" data-i18n="cat.o5.p4">Visto de lejos parece un poema sobre el otoño porteño. Visto de cerca es lo que es: un dataset hecho con las manos. Una base de datos donde cada fila pesa, se rompe si se cae, y tiene un color que no se eligió desde un menú — se calculó.</p>
+            </div>
+            <p class="opus__break reveal" data-i18n="cat.o5.q2">Una hoja pierde el color. ¿Cuánta información cabe en eso? ¿Y qué pasa si la pongo en una pared, una al lado de la otra, hasta llenarla?</p>
+            <div class="opus__prose">
+              <p class="reveal" data-i18n="cat.o5.p5">El mural se monta en mayo de 2027, cuando empiece el otoño porteño, y crece semana a semana hasta junio. Lo que ves no es una representación del otoño. Es el otoño traducido a otro idioma — el de la materia que se queda.</p>
+            </div>
+
+            <ul class="species reveal" aria-label="Especies mapeadas">
+              <li class="species__item" style="--sp: #6f74c4"><span class="species__dot"></span><span data-i18n="cat.o5.sp1">jacarandá</span></li>
+              <li class="species__item" style="--sp: #c9852a"><span class="species__dot"></span><span data-i18n="cat.o5.sp2">plátano</span></li>
+              <li class="species__item" style="--sp: #f0b613"><span class="species__dot"></span><span data-i18n="cat.o5.sp3">ginkgo</span></li>
+              <li class="species__item" style="--sp: #b23b2e"><span class="species__dot"></span><span data-i18n="cat.o5.sp4">liquidámbar</span></li>
+            </ul>
+
+            <dl class="specs reveal">
+              <div class="specs__row">
+                <dt class="mono" data-i18n="cat.o5.k1">Técnica</dt>
+                <dd data-i18n="cat.o5.v1">Cerámica esmaltada, modelado a mano</dd>
+              </div>
+              <div class="specs__row">
+                <dt class="mono" data-i18n="cat.o5.k2">Especies</dt>
+                <dd data-i18n="cat.o5.v2">Jacarandá, plátano, ginkgo, liquidámbar</dd>
+              </div>
+              <div class="specs__row">
+                <dt class="mono" data-i18n="cat.o5.k3">Período</dt>
+                <dd data-i18n="cat.o5.v3">12 semanas (mayo–junio 2027)</dd>
+              </div>
+              <div class="specs__row">
+                <dt class="mono" data-i18n="cat.o5.k4">Variables</dt>
+                <dd data-i18n="cat.o5.v4">Color foliar · temperatura mínima · precipitación · pigmento revelado</dd>
+              </div>
+              <div class="specs__row">
+                <dt class="mono" data-i18n="cat.o5.k5">Formato</dt>
+                <dd data-i18n="cat.o5.v5">Mural · aprox. 168 hojas</dd>
+              </div>
+              <div class="specs__row">
+                <dt class="mono" data-i18n="cat.o5.k6">Origen</dt>
+                <dd data-i18n="cat.o5.v6">Obra autoral del estudio. Nadie la encargó.</dd>
+              </div>
+            </dl>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══════════ CTA ═══════════ -->
+    <section class="pcta pcta--gold">
+      <div class="fleaf" data-drift="0.06" data-rot="0.8" style="right: -2rem; bottom: -3rem; width: clamp(140px, 16vw, 240px); --r0: 140deg; --r1: 152deg" aria-hidden="true">
+        <img src="assets/img/leaf-brown.png" alt="">
+      </div>
+      <h2 class="pcta__t reveal" data-i18n-html="cat.cta">¿Tenés un dato con una historia adentro, <em>esperando que alguien la lea</em>?</h2>
+      <a class="btn btn--ink reveal" href="proponer.html" data-magnetic data-i18n="cat.ctaBtn">Proponer un proyecto</a>
+      <a class="pcta__mail" href="mailto:hola@ordinal.studio">hola@ordinal.studio</a>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <img class="footer__mark" src="assets/img/logomark.png" alt="" aria-hidden="true">
+      <a class="footer__logo" href="index.html">ordinal<i>.</i></a>
+      <p class="footer__tag" data-i18n="footer.tag">Un museo de historias de datos. Corre el verde para que veas el dorado que ya tenías.</p>
+    </div>
+    <div class="footer__cols">
+      <nav class="footer__nav">
+        <a href="index.html" data-i18n="hero.eyebrow">museo de historias de datos</a>
+        <a href="proponer.html" data-i18n="nav.propose">Proponer un proyecto</a>
+        <a href="https://nashiracalvo.com" target="_blank" rel="noopener">nashiracalvo.com</a>
+      </nav>
+    </div>
+    <p class="footer__copy mono">© <span id="year">2026</span> ordinal studio — <span data-i18n="footer.rights">todas las hojas reservadas</span></p>
+  </footer>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

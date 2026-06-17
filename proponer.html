@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ordinal — proponer un proyecto</title>
+  <meta name="description" content="Contame qué dato tenés. Si hay una historia adentro, la leemos juntas antes de que se apague.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+</head>
+<body data-page="propose">
+
+  <div class="noise" aria-hidden="true"></div>
+  <canvas id="leavesCanvas" aria-hidden="true"></canvas>
+  <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+  <div class="cursor" aria-hidden="true"><div class="cursor__dot"></div><div class="cursor__ring"></div></div>
+
+  <header class="nav" id="nav">
+    <a class="nav__logo" href="index.html" aria-label="ordinal — inicio">
+      <img class="nav__leaf" src="assets/img/logomark.png" alt="" aria-hidden="true">
+      <span>ordinal<i>.</i></span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="coleccion.html" data-i18n="nav.collection">La colección</a>
+      <a href="proponer.html" data-i18n="nav.propose">Proponer un proyecto</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="Cambiar idioma / Switch language">
+        <span data-lang-opt="es">ES</span><i>/</i><span data-lang-opt="en">EN</span>
+      </button>
+      <button class="burger" id="burger" aria-label="Menú"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="propose">
+      <div class="fleaf fleaf--lg" data-drift="0.08" data-rot="0.5" style="right: 4vw; top: 6%; width: clamp(110px, 12vw, 200px); --r0: 10deg; --r1: 22deg; --sway: 12s" aria-hidden="true">
+        <img src="assets/img/leaf-gold.png" alt="">
+      </div>
+      <div class="propose__inner">
+
+        <div class="propose__aside">
+          <p class="propose__eyebrow mono reveal" data-i18n="prop.eyebrow">Hablemos</p>
+          <h1 class="propose__title reveal" data-i18n-html="prop.title">Cuéntame qué dato <em>necesitas que se lea.</em></h1>
+          <p class="propose__intro reveal" data-i18n="prop.intro">Si tu organización tiene información que merece encontrar a su lector —un estudio, una base de datos, un informe que vive encerrado en un PDF— este es el lugar para escribirme.</p>
+          <p class="propose__intro reveal" data-i18n="prop.intro2">Trabajo con organismos internacionales, instituciones, fundaciones y equipos de investigación que ya saben que sus datos importan, y que necesitan que ese valor se vuelva legible para audiencias más amplias. Esa traducción es lo que hace el estudio.</p>
+
+          <div class="propose__how reveal">
+            <span class="propose__how-title mono" data-i18n="prop.stepsTitle">Cómo trabajamos juntos</span>
+            <ol class="steps">
+              <li>
+                <strong data-i18n="prop.s1t">Una primera lectura.</strong>
+                <span data-i18n="prop.s1d">Reviso el material con tiempo. Acordamos una reunión preliminar. Cruzo información. Identifico la historia que el conjunto de datos ya contiene y su potencial narrativo para la audiencia que tienen en mente.</span>
+              </li>
+              <li>
+                <strong data-i18n="prop.s2t">Una respuesta en una semana.</strong>
+                <span data-i18n="prop.s2d">Les envío un primer documento de lectura: qué veo en los datos, qué tipo de pieza podría darles mejor llegada, y una primera estimación de alcance, tiempos y honorarios.</span>
+              </li>
+              <li>
+                <strong data-i18n="prop.s3t">Una conversación para decidir.</strong>
+                <span data-i18n="prop.s3d">Una reunión para revisar la propuesta y ajustarla a sus objetivos. Si el proyecto encaja con lo que el estudio hace bien, avanzamos. Si no, lo digo con la misma claridad.</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="propose__formwrap reveal">
+          <div class="pform__head">
+            <span class="pform__kicker mono" data-i18n="prop.formKicker">Para iniciar la conversación</span>
+            <h2 class="pform__title" data-i18n="prop.formTitle">El camino corto: escríbeme.</h2>
+            <p class="pform__sub" data-i18n="prop.formSub">Con estos datos tengo lo suficiente para hacer una primera lectura. Respondo dentro de la semana hábil siguiente.</p>
+            <a class="propose__mail" href="mailto:hola@ordinalstudio.co">hola@ordinalstudio.co</a>
+          </div>
+
+          <form class="pform" id="proposeForm" action="https://formsubmit.co/hola@nashiracalvo.com" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="Nueva propuesta de proyecto — ordinal studio">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <div class="hp" aria-hidden="true">
+              <label>No llenar este campo<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+            </div>
+
+            <div class="field">
+              <label for="pf-nombre" data-i18n="prop.f.name">Nombre y cargo</label>
+              <input type="text" id="pf-nombre" name="Nombre y cargo" required autocomplete="name" data-i18n-ph="prop.f.namePh" placeholder="María García, directora de comunicación">
+            </div>
+
+            <div class="field">
+              <label for="pf-email" data-i18n="prop.f.email">Correo de contacto</label>
+              <input type="email" id="pf-email" name="Correo de contacto" required autocomplete="email" data-i18n-ph="prop.f.emailPh" placeholder="maria.garcia@institucion.org">
+            </div>
+
+            <div class="field">
+              <label for="pf-org" data-i18n="prop.f.org">Organización</label>
+              <input type="text" id="pf-org" name="Organización" autocomplete="organization" data-i18n-ph="prop.f.orgPh" placeholder="Organismo, institución, programa o área">
+            </div>
+
+            <div class="field">
+              <span class="field__legend" data-i18n="prop.f.type">Qué tipo de pieza tienen en mente</span>
+              <div class="choices" role="radiogroup" aria-label="Tipo de pieza">
+                <label class="choice">
+                  <input type="radio" name="Tipo de pieza" value="Data storytelling">
+                  <span data-i18n="prop.f.t1">Data storytelling</span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="Tipo de pieza" value="Pieza de data art">
+                  <span data-i18n="prop.f.t2">Pieza de data art</span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="Tipo de pieza" value="Abierto a propuesta">
+                  <span data-i18n="prop.f.t3">Abierto a propuesta</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="pf-msg" data-i18n="prop.f.msg">Sobre el proyecto y los datos</label>
+              <textarea id="pf-msg" name="Sobre el proyecto y los datos" required rows="5" data-i18n-ph="prop.f.msgPh" placeholder="Cuéntenme del material disponible, la audiencia que esperan alcanzar y, si lo tienen, el horizonte de tiempo. Las preguntas abiertas también son bienvenidas — muchas piezas empiezan así."></textarea>
+            </div>
+
+            <p class="pform__error" id="formError" role="alert" data-i18n="prop.error">Algo falló al enviar. Escríbeme directo a hola@ordinalstudio.co.</p>
+
+            <button class="btn btn--gold pform__submit" type="submit">
+              <span class="pform__submit-label" data-i18n="prop.send">Enviar →</span>
+              <span class="pform__submit-sending" data-i18n="prop.sending">Enviando…</span>
+            </button>
+
+            <p class="pform__note" data-i18n="prop.note">Uso tus datos solo para responderte. Nada más.</p>
+          </form>
+
+          <div class="form-success" id="formSuccess" aria-live="polite">
+            <span class="form-success__leaf" aria-hidden="true">
+              <img src="assets/img/leaf-gold.png" alt="">
+            </span>
+            <h2 class="form-success__t" data-i18n="prop.okT">Tu mensaje ya está en camino.</h2>
+            <p class="form-success__d" data-i18n="prop.okD">Gracias por escribirme. Hago una primera lectura y respondo dentro de la semana hábil siguiente.</p>
+            <a class="btn btn--outline-ink" href="coleccion.html" data-i18n="prop.okBtn">Mientras tanto, conocé la colección</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <img class="footer__mark" src="assets/img/logomark.png" alt="" aria-hidden="true">
+      <a class="footer__logo" href="index.html">ordinal<i>.</i></a>
+      <p class="footer__tag" data-i18n="footer.tag">Un museo de historias de datos. Corre el verde para que veas el dorado que ya tenías.</p>
+    </div>
+    <div class="footer__cols">
+      <nav class="footer__nav">
+        <a href="coleccion.html" data-i18n="nav.collection">La colección</a>
+        <a href="proponer.html" data-i18n="nav.propose">Proponer un proyecto</a>
+        <a href="https://nashiracalvo.com" target="_blank" rel="noopener">nashiracalvo.com</a>
+      </nav>
+    </div>
+    <p class="footer__copy mono">© <span id="year">2026</span> ordinal studio — <span data-i18n="footer.rights">todas las hojas reservadas</span></p>
+  </footer>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

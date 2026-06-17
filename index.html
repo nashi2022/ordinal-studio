@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ordinal — museo de historias de datos</title>
+  <meta name="description" content="Ordinal es un museo de historias de datos. Data storytelling y data art: destapo lo que los números esconden y lo hago hablar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+</head>
+<body data-page="home">
+
+  <div class="noise" aria-hidden="true"></div>
+  <div class="tree-backdrop" aria-hidden="true">
+    <img id="treeBackdropImg" src="assets/img/tree-transition.png" alt="">
+  </div>
+  <canvas id="leavesCanvas" aria-hidden="true"></canvas>
+  <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+  <div class="cursor" aria-hidden="true"><div class="cursor__dot"></div><div class="cursor__ring"></div></div>
+
+  <header class="nav" id="nav">
+    <a class="nav__logo" href="index.html" aria-label="ordinal — inicio">
+      <img class="nav__leaf" src="assets/img/logomark.png" alt="" aria-hidden="true">
+      <span>ordinal<i>.</i></span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="coleccion.html" data-i18n="nav.collection">La colección</a>
+      <a href="proponer.html" data-i18n="nav.propose">Proponer un proyecto</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="Cambiar idioma / Switch language">
+        <span data-lang-opt="es">ES</span><i>/</i><span data-lang-opt="en">EN</span>
+      </button>
+      <button class="burger" id="burger" aria-label="Menú"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ═══════════ ENTRADA AL MUSEO ═══════════ -->
+    <section class="hero hero--museum" id="hero">
+      <div class="hero__inner">
+        <p class="hero__eyebrow mono reveal" data-i18n="hero.eyebrow">museo de historias de datos</p>
+        <p class="hero__tag mono reveal" data-i18n="hero.tag">Data storytelling &amp; data art</p>
+        <h1 class="hero__title">
+          <span class="hline"><span class="hline__in" data-i18n="hero.l1">Ningún dato</span></span>
+          <span class="hline hline--gold"><span class="hline__in" data-i18n-html="hero.l2">es solo un <em>número</em>.</span></span>
+        </h1>
+        <div class="hero__prologue reveal">
+          <p data-i18n="hero.p1">Te confieso algo raro para una econometrista: los números, en sí, me aburren. Lo que no me aburre nunca es lo que esconden.</p>
+          <p data-i18n-html="hero.p2">Un <span class="highlight">0,3</span> puede ser una familia. Un punto porcentual, un pueblo entero. Una fila cualquiera de una planilla puede ser una persona parada en una esquina a la que nadie le preguntó cómo llegó hasta ahí.</p>
+          <p class="hero__prologue-end" data-i18n-html="hero.p3"><span class="highlight">Leo datos para encontrar a esa persona.</span></p>
+        </div>
+        <div class="hero__actions reveal">
+          <a class="btn btn--outline-ink" href="coleccion.html" data-magnetic data-i18n="cta.b1">Ver la colección</a>
+          <a class="btn btn--gold" href="proponer.html" data-magnetic data-i18n="cta.b2">Proponer un proyecto</a>
+        </div>
+      </div>
+      <div class="hero__scroll mono" aria-hidden="true">
+        <span data-i18n="hero.scroll">Te voy revelando el mundo de ordinal a medida que vas bajando</span>
+        <span class="hero__scroll-line"></span>
+      </div>
+    </section>
+
+    <div class="quotes" aria-hidden="true">
+      <div class="quotes__track" id="quotesTrack">
+        <span data-i18n="quotes">“No agrego. No invento. Corro el verde.” · “El dorado siempre estuvo ahí.” · “No decoro información. La hago hablar.” · “Un dato puede ser una persona en una esquina.” · </span>
+      </div>
+    </div>
+
+    <!-- ═══════════ variable ordinal ═══════════ -->
+    <div class="divider" aria-hidden="true"><span></span><img src="assets/img/leaf-s2.png" alt=""><span></span></div>
+    <section class="chapter chapter--museum" id="el-nombre">
+      <div class="museum-plaque reveal" aria-hidden="true">
+        <span class="mono" data-i18n="plaque.ordinal">Sala I</span>
+      </div>
+      <div class="fleaf fleaf--lg" data-drift="0.08" data-rot="0.6" style="right: 6vw; top: 4rem; width: clamp(120px, 14vw, 220px); --r0: 10deg; --r1: 22deg; --sway: 10s" aria-hidden="true">
+        <img src="assets/img/leaf-green.png" alt="">
+      </div>
+      <div class="chapter__body">
+        <p class="lead reveal" data-i18n-html="c1.p1">Hay un tipo de dato que me da esperanza. Se llama <span class="highlight">variable ordinal</span>.</p>
+        <p class="reveal" data-i18n="c1.p2">Es la que mide lo que no tiene número exacto, pero igual tiene un orden. El dolor del uno al diez. El “un poco, bastante, demasiado”. Primero, segundo, tercero.</p>
+        <div class="ordinal-scale reveal">
+          <span class="ordinal-scale__tick" data-i18n="c1.s1" data-ordinal="0">primero</span>
+          <span class="ordinal-scale__line" data-ordinal-line="0"></span>
+          <span class="ordinal-scale__tick" data-i18n="c1.s2" data-ordinal="1">segundo</span>
+          <span class="ordinal-scale__line" data-ordinal-line="1"></span>
+          <span class="ordinal-scale__tick" data-i18n="c1.s3" data-ordinal="2">tercero</span>
+        </div>
+        <p class="reveal" data-i18n="c1.p3">No te dice cuánto. Te dice qué pesa más que qué. Es la única clase de dato que admite, de entrada, que hay cosas que no se dejan contar —y que aun así merecen medirse.</p>
+        <p class="reveal" data-i18n-html="c1.p4">El estudio se llama así por eso. Porque trabajo justo en ese borde: <span class="highlight">donde el número se rinde y la historia empieza.</span></p>
+      </div>
+    </section>
+
+    <!-- ═══════════ datos mudos ═══════════ -->
+    <div class="divider" aria-hidden="true"><span></span><img src="assets/img/leaf-s4.png" alt=""><span></span></div>
+    <section class="chapter chapter--tomb" id="el-problema">
+      <div class="tomb">
+        <p class="tomb__phrase reveal" data-i18n-html="c2.phrase">La mayoría de los datos del mundo mueren <span class="highlight">mudos</span>.</p>
+      </div>
+      <div class="fleaf" data-drift="-0.1" data-rot="-0.5" style="left: 3vw; top: 30%; width: clamp(90px, 10vw, 170px); --r0: -14deg; --r1: -2deg" aria-hidden="true">
+        <img src="assets/img/leaf-dark.png" alt="">
+      </div>
+      <div class="fleaf" data-drift="0.12" data-rot="0.7" style="right: 4vw; bottom: 8%; width: clamp(100px, 12vw, 190px); --r0: 24deg; --r1: 38deg; --sway: 12s" aria-hidden="true">
+        <img src="assets/img/leaf-brown.png" alt="">
+      </div>
+      <div class="chapter__body">
+        <p class="lead reveal" data-i18n="c2.p1">Y sin embargo, casi nadie los lee.</p>
+        <p class="reveal" data-i18n="c2.p2">Información que costó años, presupuesto y el trabajo de mucha gente, encerrada en un PDF que abrieron tres personas y entendieron dos.</p>
+        <p class="big-serif reveal" data-i18n-html="c2.p3">Es un <span class="highlight">desperdicio</span> de tiempo, conocimiento y dinero.</p>
+        <p class="reveal" data-i18n="c2.p4">Ahí adentro hay números que podrían cambiar una política, mover un presupuesto, sostener un programa que se está por caer. Y se apagan sin decir una palabra —porque están escritos en un idioma que solo hablan los que ya sabían la respuesta.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════ ala de lectura · data storytelling ═══════════ -->
+    <div class="divider" aria-hidden="true"><span></span><img src="assets/img/leaf-s6.png" alt=""><span></span></div>
+    <section class="story-pin story-pin--tint story-pin--wing" id="ala-lectura" data-steps="4">
+      <div class="story-pin__sticky">
+        <div class="story-pin__demo" aria-hidden="true">
+          <div class="demo demo--pdf is-on" data-demo="0">
+            <span class="demo__tag mono" data-i18n="demo.read.t0">informe_final_v47.pdf</span>
+            <div class="demo__pdf">
+              <i></i><i></i><i></i>
+              <p class="mono">···</p>
+            </div>
+            <span class="demo__meta mono" data-i18n="demo.read.m0">3 personas lo abrieron</span>
+          </div>
+          <div class="demo demo--sheet" data-demo="1">
+            <div class="demo__grid"></div>
+            <span class="demo__meta mono" data-i18n="demo.read.m1">denso · técnico · ilegible</span>
+          </div>
+          <div class="demo demo--split" data-demo="2">
+            <div class="demo__half demo__half--gray"><span class="mono">PDF</span></div>
+            <div class="demo__half demo__half--gold"><span class="mono" data-i18n="demo.read.t2">historia</span></div>
+          </div>
+          <div class="demo demo--story" data-demo="3">
+            <img src="assets/img/leaf-s6.png" alt="">
+            <p data-i18n="demo.read.t3">El dato aprendió a hablar.</p>
+          </div>
+        </div>
+        <div class="story-pin__rail">
+          <article class="sstep is-on" data-step="0">
+            <p class="lead" data-i18n="c3.p1">Mi trabajo es llegar antes de que se apaguen.</p>
+          </article>
+          <article class="sstep" data-step="1">
+            <p data-i18n="c3.p2">Tomo ese dato —denso, técnico, ilegible— y le encuentro la historia que ya tenía adentro. No la invento. La destapo. Y la cuento de una forma que no necesita diccionario: que se entiende con el cuerpo, que deja ver el impacto que siempre estuvo en los números y que nadie se había detenido a mirar.</p>
+          </article>
+          <article class="sstep" data-step="2">
+            <p class="big-serif" data-i18n-html="c3.p3">No decoro información. <span class="highlight">Hago que cuente una historia.</span></p>
+          </article>
+          <article class="sstep" data-step="3">
+            <p data-i18n="c3.p4">Para organismos, instituciones y multilaterales que tienen algo enorme para decir, y están cansados de que no se escuche.</p>
+            <span class="wing-badge mono reveal" data-i18n="c3.badge">data storytelling</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ ala de obra · data art ═══════════ -->
+    <section class="story-pin story-pin--dark story-pin--wing" id="ala-obra" data-steps="4">
+      <div class="story-pin__sticky">
+        <div class="story-pin__demo" aria-hidden="true">
+          <div class="demo demo--cell is-on" data-demo="0">
+            <div class="demo__cell">
+              <span class="demo__cell-val">0.847</span>
+              <span class="demo__cell-row mono">fila 12.847</span>
+            </div>
+            <span class="demo__meta mono" data-i18n="demo.art.m0">una celda · una tabla</span>
+          </div>
+          <div class="demo demo--weight" data-demo="1">
+            <div class="demo__weight">
+              <span></span><span></span><span></span>
+            </div>
+            <span class="demo__meta mono" data-i18n="demo.art.m1">trasciende la pantalla</span>
+          </div>
+          <div class="demo demo--ceramic" data-demo="2">
+            <div class="demo__tiles">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <span class="demo__meta mono" data-i18n="demo.art.m2">contemplar · colgar · tocar</span>
+          </div>
+          <div class="demo demo--still" data-demo="3">
+            <div class="demo__still">
+              <img src="assets/img/leaf-s8.png" alt="">
+            </div>
+            <p class="demo__quote" data-i18n="demo.art.t3">abstracto → forma → sentido</p>
+          </div>
+        </div>
+        <div class="story-pin__rail">
+          <article class="sstep is-on" data-step="0">
+            <p class="lead" data-i18n-html="c4.p1">A veces una historia no quiere que la lean. <span class="highlight">Quiere que la miren.</span></p>
+          </article>
+          <article class="sstep" data-step="1">
+            <p data-i18n="c4.p2">Cuando la información es tan rica que quiere trascender la pantalla o la interactividad, le doy cuerpo. La vuelvo instalación: a veces algo que se contempla en silencio; otras, algo que podés acercar, colgar o tomar en las manos.</p>
+          </article>
+          <article class="sstep" data-step="2">
+            <p class="big-serif" data-i18n="c4.p3">Ahí la econometría y el arte dejan de ser dos cosas distintas.</p>
+          </article>
+          <article class="sstep" data-step="3">
+            <p data-i18n-html="c4.p4">Un conjunto de números que era una tabla deja de ser abstracto. <span class="highlight">Se convierte en forma, en color, en algo que podés observar y admirar</span> —conectando lo que ves con la información que hay detrás. Eso me parece mágico.</p>
+            <span class="wing-badge wing-badge--dark mono" data-i18n="c4.badge">data art</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ las dos alas ═══════════ -->
+    <section class="wings-preview" id="wings">
+      <div class="wings-preview__inner">
+        <a class="wing-card wing-card--read reveal" href="#ala-lectura">
+          <div class="wing-card__frame">
+            <img src="assets/img/leaf-gold.png" alt="" aria-hidden="true">
+          </div>
+          <div class="wing-card__txt">
+            <strong data-i18n="c3.badge">data storytelling</strong>
+          </div>
+        </a>
+        <a class="wing-card wing-card--art reveal" href="#ala-obra">
+          <div class="wing-card__frame">
+            <img src="assets/img/leaf-brown.png" alt="" aria-hidden="true">
+          </div>
+          <div class="wing-card__txt">
+            <strong data-i18n="c4.badge">data art</strong>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track" id="marqueeTrack">
+        <span data-i18n="marquee">destapar&ensp;·&ensp;contar&ensp;·&ensp;mirar&ensp;·&ensp;tocar&ensp;·&ensp;revelar&ensp;·&ensp;</span>
+      </div>
+    </div>
+
+    <!-- ═══════════ la curadora ═══════════ -->
+    <section class="chapter chapter--curator" id="quien-lee">
+      <div class="museum-plaque reveal" aria-hidden="true">
+        <span class="mono" data-i18n="plaque.curator">La curadora</span>
+      </div>
+      <div class="fleaf fleaf--lg" data-drift="-0.07" data-rot="0.4" style="left: 4vw; bottom: 12%; width: clamp(110px, 13vw, 200px); --r0: -20deg; --r1: -8deg; --sway: 13s" aria-hidden="true">
+        <img src="assets/img/leaf-brown.png" alt="">
+      </div>
+      <div class="chapter__body chapter__body--curator">
+        <p class="curator__hook reveal" data-i18n="c5.hook">Te cuento lo que pasa de verdad cuando me siento frente a una base de datos.</p>
+
+        <p class="reveal" data-i18n-html="c5.p1">Soy <span class="highlight">dos cosas que casi nunca van juntas</span>. Una economista que aprendió a no equivocarse con los números. Y una artista que nunca pudo ver una planilla sin buscarle la belleza adentro.</p>
+
+        <p class="reveal" data-i18n-html="c5.p2">Donde casi todos ven una grilla —<span class="curator__muted">filas, columnas, decimales para entregar antes del viernes</span>—, yo veo otra cosa.</p>
+
+        <div class="curator__visions reveal">
+          <p data-i18n="c5.v1">Veo a la persona que se fue de su pueblo.</p>
+          <p data-i18n="c5.v2">La cosecha que no llegó.</p>
+          <p data-i18n="c5.v3">La decisión que cambió mil vidas y terminó encogida en una celda gris.</p>
+          <p class="curator__visions-end" data-i18n-html="c5.v4">Veo, casi siempre, <span class="highlight">una historia que alguien dejó a medio contar.</span></p>
+        </div>
+
+        <p class="reveal" data-i18n-html="c5.p3">Me llamo <strong>Nashira Calvo</strong>. Me formé para el rigor: dos maestrías, quince años leyendo datos para organismos internacionales que deciden sobre países enteros. Aprendí a no equivocarme con los números —porque <span class="highlight">un número mal leído termina en una decisión mal tomada</span>, y esas decisiones caen sobre la vida de miles de personas.</p>
+
+        <p class="reveal" data-i18n-html="c5.p4">Pero nunca los traté como una herramienta. <span class="highlight">Los traté como un material.</span> Como la arcilla, el óleo: algo que, si lo trabajás con oficio y con paciencia, deja salir una forma que ya estaba adentro. A veces esa forma es una historia para leer y comprender. A veces la saco de la pantalla y se vuelve materia: un mural, un cuadro, un libro, objetos, datos que se pueden tocar.</p>
+
+        <p class="reveal" data-i18n-html="c5.p5">Crecí entre Bolivia y Buenos Aires, que es aprender a leer el mundo desde dos orillas a la vez. Quizás por eso nunca me cerró elegir. Me lo pidieron muchas veces —<em>o economista, o artista</em>—. No pude.</p>
+
+        <div class="curator__duo reveal">
+          <span data-i18n="c5.duo1">Rigor de economista.</span>
+          <span data-i18n="c5.duo2">Ojo de artista.</span>
+        </div>
+
+        <p class="big-serif reveal" data-i18n-html="c5.p6">Así que hice un estudio entero de esa rareza. Se llama <span class="highlight">Ordinal</span>. Un museo de historias que, hasta hace poco, eran apenas números.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════ ginkgo — scrollytelling de la hoja ═══════════ -->
+    <section class="leafstory" id="una-ultima-cosa" data-steps="6">
+      <div class="leafstory__sticky">
+        <div class="leafstory__leaf" id="storyLeaf" aria-hidden="true">
+          <img src="assets/img/leaf-s1.png" class="morph" alt="">
+          <img src="assets/img/leaf-s2.png" class="morph" alt="">
+          <img src="assets/img/leaf-s3.png" class="morph" alt="">
+          <img src="assets/img/leaf-s4.png" class="morph" alt="">
+          <img src="assets/img/leaf-s5.png" class="morph" alt="">
+          <img src="assets/img/leaf-s6.png" class="morph" alt="">
+        </div>
+        <div class="leafstory__steps">
+          <p class="lstep" data-step="0" data-i18n="c6.s1">El ginkgo es el árbol más viejo que sigue en pie. Doscientos millones de años. Sobrevivió a lo que borró a casi todo lo demás —incluso a una bomba.</p>
+          <p class="lstep" data-step="1" data-i18n="c6.s2">Cada otoño se vuelve dorado, entero, casi de un día para el otro. Y casi todos creemos que el otoño le regala ese color.</p>
+          <p class="lstep lstep--big" data-step="2" data-i18n="c6.s3">Mentira.</p>
+          <p class="lstep" data-step="3" data-i18n="c6.s4">El dorado estuvo ahí siempre, abajo del verde, esperando. El árbol solo dejó de tapar lo que ya era.</p>
+          <p class="lstep" data-step="4" data-i18n-html="c6.s5">En un organismo pasa exactamente lo mismo. El informe, la planilla, el PDF —todo ese verde técnico cubriendo lo que importa—. No agrego. No invento. No maquillo.<br><br><em>Corro el verde.</em></p>
+          <p class="lstep lstep--final" data-step="5" data-i18n-html="c6.s6">Y aparece lo que siempre estuvo ahí: el impacto detrás de cada número, la historia que costó años reunir y que casi nadie alcanzó a leer.<br><strong>Eso es leer ordinal.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ CTA ═══════════ -->
+    <section class="cta" id="contacto">
+      <p class="cta__q reveal" data-i18n="cta.q">¿Tenés un dato con una historia adentro, esperando que alguien la lea antes de que se apague?</p>
+      <p class="cta__fav reveal" data-i18n="cta.fav">Esa es, exactamente, mi parte favorita.</p>
+      <div class="cta__btns reveal">
+        <a class="btn btn--ink" href="coleccion.html" data-magnetic data-i18n="cta.b1">Ver la colección</a>
+        <a class="btn btn--gold" href="proponer.html" data-magnetic data-i18n="cta.b2">Proponer un proyecto</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <img class="footer__mark" src="assets/img/logomark.png" alt="" aria-hidden="true">
+      <a class="footer__logo" href="index.html">ordinal<i>.</i></a>
+      <p class="footer__tag" data-i18n="footer.tag">Un museo de historias de datos. Corre el verde para que veas el dorado que ya tenías.</p>
+    </div>
+    <div class="footer__cols">
+      <nav class="footer__nav">
+        <a href="coleccion.html" data-i18n="nav.collection">La colección</a>
+        <a href="proponer.html" data-i18n="nav.propose">Proponer un proyecto</a>
+        <a href="https://nashiracalvo.com" target="_blank" rel="noopener">nashiracalvo.com</a>
+      </nav>
+    </div>
+    <p class="footer__copy mono">© <span id="year">2026</span> ordinal studio — <span data-i18n="footer.rights">todas las hojas reservadas</span></p>
+  </footer>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
