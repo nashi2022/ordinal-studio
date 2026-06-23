@@ -14,7 +14,6 @@ const I18N = {
 
     /* ── home · hero ── */
     "hero.eyebrow": "museo de historias de datos",
-    "hero.tag": "Data storytelling & data art",
     "hero.l1": "Ningún dato",
     "hero.l2": "es solo un <em>número</em>.",
     "hero.p1": "Te confieso algo raro para una econometrista: los números, en sí, me aburren. Lo que no me aburre nunca es lo que esconden.",
@@ -241,7 +240,6 @@ const I18N = {
 
     /* ── home · hero ── */
     "hero.eyebrow": "museum of data stories",
-    "hero.tag": "Data storytelling & data art",
     "hero.l1": "No data point",
     "hero.l2": "is just a <em>number</em>.",
     "hero.p1": "I'll confess something odd for an econometrician: numbers, on their own, bore me. What never bores me is what they hide.",
